@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>RODRICE | Maquillaje & Peinados</title>
+
+    <style>
+
+        /* ==============================
+           ESTILOS GENERALES
+        ============================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #000;
+            color: #fff;
+        }
+
+        /* ==============================
+           COLORES
+        ============================== */
+
+        :root {
+            --negro: #000000;
+            --blanco: #ffffff;
+
+            /* BEIGE */
+            --beige: #d8c3a5;
+            --beige-claro: #eadbc8;
+            --beige-oscuro: #b9a184;
+
+            --gris: #111111;
+        }
+
+        /* ==============================
+           HEADER
+        ============================== */
+
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+
+            background: rgba(0, 0, 0, 0.95);
+
+            border-bottom: 1px solid var(--beige);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 32px;
+            font-weight: bold;
+
+            letter-spacing: 6px;
+
+            color: var(--beige);
+        }
+
+        nav ul {
+            list-style: none;
+
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: white;
+
+            font-size: 15px;
+
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--beige);
+        }
+
+        /* ==============================
+           HERO
+        ============================== */
+
+        .hero {
+            min-height: 100vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            text-align: center;
+
+            padding: 120px 20px 60px;
+
+            background:
+                linear-gradient(
+                    rgba(0, 0, 0, .65),
+                    rgba(0, 0, 0, .8)
+                ),
+
+                url("https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=1600&q=80");
+
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: 80px;
+
+            letter-spacing: 15px;
+
+            color: var(--beige);
+
+            margin-bottom: 15px;
+        }
+
+        .hero h2 {
+            font-size: 30px;
+
+            text-transform: uppercase;
+
+            letter-spacing: 5px;
+
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 18px;
+
+            color: #ddd;
+
+            margin-bottom: 35px;
+        }
+
+        /* ==============================
+           BOTONES
+        ============================== */
+
+        .btn {
+            display: inline-block;
+
+            padding: 15px 35px;
+
+            background: var(--beige);
+
+            color: #000;
+
+            text-decoration: none;
+
+            font-weight: bold;
+
+            border: 2px solid var(--beige);
+
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: transparent;
+
+            color: var(--beige);
+        }
+
+        /* ==============================
+           SECCIONES
+        ============================== */
+
+        section {
+            padding: 100px 20px;
+        }
+
+        .container {
+            max-width: 1100px;
+
+            margin: auto;
+        }
+
+        .titulo {
+            text-align: center;
+
+            margin-bottom: 60px;
+        }
+
+        .titulo h2 {
+            font-size: 42px;
+
+            color: var(--beige);
+
+            letter-spacing: 3px;
+        }
+
+        .titulo p {
+            color: #bbb;
+
+            margin-top: 12px;
+        }
+
+        /* ==============================
+           SERVICIOS
+        ============================== */
+
+        #servicios {
+            background: #fff;
+
+            color: #000;
+        }
+
+        .servicios {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 25px;
+        }
+
+        .servicio {
+            padding: 40px 25px;
+
+            text-align: center;
+
+            border: 1px solid var(--beige);
+
+            background: #000;
+
+            color: white;
+
+            transition: 0.3s;
+        }
+
+        .servicio:hover {
+            transform: translateY(-10px);
+
+            box-shadow:
+                0 10px 30px
+                rgba(216, 195, 165, .25);
+        }
+
+        .icono {
+            font-size: 45px;
+
+            margin-bottom: 20px;
+        }
+
+        .servicio h3 {
+            color: var(--beige);
+
+            font-size: 23px;
+
+            margin-bottom: 15px;
+        }
+
+        .servicio p {
+            color: #ccc;
+
+            line-height: 1.6;
+        }
+
+        /* ==============================
+           GALERÍA
+        ============================== */
+
+        #galeria {
+            background: #000;
+        }
+
+        .galeria {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 15px;
+        }
+
+        .galeria img {
+            width: 100%;
+
+            height: 350px;
+
+            object-fit: cover;
+
+            filter: grayscale(30%);
+
+            transition: 0.4s;
+        }
+
+        .galeria img:hover {
+            transform: scale(1.03);
+
+            filter: grayscale(0%);
+        }
+
+        /* ==============================
+           PRECIOS
+        ============================== */
+
+        #precios {
+            background: #fff;
+
+            color: #000;
+        }
+
+        .precios {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 25px;
+        }
+
+        .precio {
+            background: #000;
+
+            color: white;
+
+            padding: 40px 25px;
+
+            text-align: center;
+
+            border: 1px solid var(--beige);
+        }
+
+        .precio h3 {
+            color: var(--beige);
+
+            font-size: 24px;
+
+            margin-bottom: 20px;
+        }
+
+        .precio .cantidad {
+            font-size: 40px;
+
+            font-weight: bold;
+
+            color: white;
+
+            margin-bottom: 20px;
+        }
+
+        .precio p {
+            color: #ccc;
+
+            line-height: 2;
+        }
+
+        /* ==============================
+           CONTACTO
+        ============================== */
+
+        #contacto {
+            background: #111;
+        }
+
+        .contacto {
+            text-align: center;
+        }
+
+        .contacto-info {
+            margin: 30px 0;
+
+            line-height: 2.2;
+
+            color: #ddd;
+        }
+
+        .contacto-info span {
+            color: var(--beige);
+
+            font-weight: bold;
+        }
+
+        /* ==============================
+           FOOTER
+        ============================== */
+
+        footer {
+            text-align: center;
+
+            padding: 30px 20px;
+
+            background: #000;
+
+            border-top: 1px solid #333;
+
+            color: #888;
+        }
+
+        footer strong {
+            color: var(--beige);
+        }
+
+        /* ==============================
+           RESPONSIVE
+        ============================== */
+
+        @media (max-width: 800px) {
+
+            nav {
+                flex-direction: column;
+
+                gap: 15px;
+            }
+
+            nav ul {
+                gap: 15px;
+
+                flex-wrap: wrap;
+
+                justify-content: center;
+            }
+
+            .hero h1 {
+                font-size: 55px;
+
+                letter-spacing: 8px;
+            }
+
+            .hero h2 {
+                font-size: 22px;
+            }
+
+            .servicios,
+            .galeria,
+            .precios {
+                grid-template-columns: 1fr;
+            }
+
+            .galeria img {
+                height: 400px;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- ==============================
+         MENÚ
+    ============================== -->
+
+    <header>
+
+        <nav>
+
+            <div class="logo">
+                RODRICE
+            </div>
+
+            <ul>
+
+                <li>
+                    <a href="#inicio">
+                        Inicio
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#servicios">
+                        Servicios
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#galeria">
+                        Galería
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#precios">
+                        Precios
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#contacto">
+                        Contacto
+                    </a>
+                </li>
+
+            </ul>
+
+        </nav>
+
+    </header>
+
+
+    <!-- ==============================
+         INICIO
+    ============================== -->
+
+    <section class="hero" id="inicio">
+
+        <div class="hero-content">
+
+            <h1>
+                RODRICE
+            </h1>
+
+            <h2>
+                Maquillaje & Peinados
+            </h2>
+
+            <p>
+                Realza tu belleza con un estilo elegante,
+                sofisticado y completamente personalizado.
+            </p>
+
+            <a href="#contacto" class="btn">
+                RESERVAR CITA
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==============================
+         SERVICIOS
+    ============================== -->
+
+    <section id="servicios">
+
+        <div class="container">
+
+            <div class="titulo">
+
+                <h2>
+                    NUESTROS SERVICIOS
+                </h2>
+
+                <p>
+                    Todo lo que necesitas para lucir espectacular.
+                </p>
+
+            </div>
+
+
+            <div class="servicios">
+
+
+                <!-- MAQUILLAJE -->
+
+                <div class="servicio">
+
+                    <div class="icono">
+                        💄
+                    </div>
+
+                    <h3>
+                        Maquillaje
+                    </h3>
+
+                    <p>
+                        Maquillaje social, glam, de noche,
+                        eventos especiales y sesiones de fotos.
+                    </p>
+
+                </div>
+
+
+                <!-- PEINADOS -->
+
+                <div class="servicio">
+
+                    <div class="icono">
+                        💇‍♀️
+                    </div>
+
+                    <h3>
+                        Peinados
+                    </h3>
+
+                    <p>
+                        Peinados elegantes, ondas, recogidos,
+                        trenzas y estilos personalizados.
+                    </p>
+
+                </div>
+
+
+                <!-- LOOK COMPLETO -->
+
+                <div class="servicio">
+
+                    <div class="icono">
+                        ✨
+                    </div>
+
+                    <h3>
+                        Look Completo
+                    </h3>
+
+                    <p>
+                        Combina maquillaje y peinado para
+                        conseguir un look espectacular.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==============================
+         GALERÍA
+    ============================== -->
+
+    <section id="galeria">
+
+        <div class="container">
+
+            <div class="titulo">
+
+                <h2>
+                    GALERÍA
+                </h2>
+
+                <p>
+                    Algunos de nuestros estilos favoritos.
+                </p>
+
+            </div>
+
+
+            <div class="galeria">
+
+                <img
+                    src="imagenes/imagen1.jpeg"
+                    alt="Maquillaje RODRICE"
+                >
+
+                <img
+                    src="imagenes/imagen2.jpeg"
+                    alt="Maquillaje RODRICE"
+                >
+
+                <img
+                    src="imagenes/imagen3.jpeg"
+                    alt="Maquillaje RODRICE"
+                >
+
+                <img
+                    src="imagenes/imagen4.jpeg"
+                    alt="Maquillaje RODRICE"
+                >
+
+                <img
+                    src="imagenes/imagen5.jpeg"
+                    alt="Maquillaje RODRICE"
+                >
+
+                <img
+                    src="imagenes/imagen6.jpeg"
+                    alt="Maquillaje RODRICE"
+                >
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==============================
+         PRECIOS
+    ============================== -->
+
+    <section id="precios">
+
+        <div class="container">
+
+            <div class="titulo">
+
+                <h2>
+                    PRECIOS
+                </h2>
+
+                <p>
+                    Elige el servicio ideal para ti.
+                </p>
+
+            </div>
+
+
+            <div class="precios">
+
+
+                <!-- MAQUILLAJE -->
+
+                <div class="precio">
+
+                    <h3>
+                        MAQUILLAJE
+                    </h3>
+
+                    <div class="cantidad">
+                        $500
+                    </div>
+
+                    <p>
+                        Maquillaje social<br>
+                        Preparación de piel<br>
+                        Pestañas incluidas
+                    </p>
+
+                </div>
+
+
+                <!-- PEINADO -->
+
+                <div class="precio">
+
+                    <h3>
+                        PEINADO
+                    </h3>
+
+                    <div class="cantidad">
+                        $400
+                    </div>
+
+                    <p>
+                        Peinado individual<br>
+                        Peinado personalizado (costo extra)<br>
+                        Fijación profesional
+                    </p>
+
+                </div>
+
+
+                <!-- LOOK COMPLETO -->
+
+                <div class="precio">
+
+                    <h3>
+                        LOOK COMPLETO
+                    </h3>
+
+                    <div class="cantidad">
+                        $700
+                    </div>
+
+                    <p>
+                        Maquillaje<br>
+                        Peinado<br>
+                        Asesoría de imagen
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==============================
+         CONTACTO
+    ============================== -->
+
+    <section id="contacto">
+
+        <div class="container contacto">
+
+            <div class="titulo">
+
+                <h2>
+                    RESERVA TU CITA
+                </h2>
+
+                <p>
+                    Haz que tu próximo evento sea inolvidable.
+                </p>
+
+            </div>
+
+
+            <div class="contacto-info">
+
+                <p>
+                    <span>
+                        Instagram:
+                    </span>
+
+                    @rodricemakeup
+                </p>
+
+
+                <p>
+                    <span>
+                        WhatsApp:
+                    </span>
+
+                    8110284444
+                </p>
+
+
+                <p>
+                    <span>
+                        Horario:
+                    </span>
+
+                    Lunes a sábado · 9:00 AM - 7:00 PM
+                </p>
+
+            </div>
+
+
+            <a
+                href="https://wa.me/8110284444"
+                class="btn"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                CONTACTAR POR WHATSAPP
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==============================
+         FOOTER
+    ============================== -->
+
+    <footer>
+
+        © 2026
+
+        <strong>
+            RODRICE
+        </strong>
+
+        · Maquillaje & Peinados
+
+    </footer>
+
+
+</body>
+</html>
